@@ -2,7 +2,24 @@ header {
     text-align: center;
 }
 
-button {
+#button {
     margin: auto;
-    width: 100%;
-}   
+    width: 100;
+    display: grid;
+}
+
+#display-joke {
+    text-align: center;
+    margin: auto;
+}
+
+#type-select {
+    text-align: center;
+}
+
+#saved-jokes {
+    text-align: center;
+    margin: auto;
+    border: 2px;
+    border-color: black;
+}
