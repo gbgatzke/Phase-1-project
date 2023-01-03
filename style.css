@@ -1,25 +1,63 @@
 header {
     text-align: center;
+    margin-top: 50px;
+    font-size: larger;
+}
+
+div {
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+    max-width: 60%;
 }
 
 #button {
     margin: auto;
     width: 100;
     display: grid;
+    margin-bottom: 20px;
 }
 
 #display-joke {
     text-align: center;
     margin: auto;
+    border-style: solid;
+    border-color: black;
+    padding-bottom: 15px;
 }
 
 #type-select {
     text-align: center;
+    margin: 40px;
+}
+
+#form {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+
+}
+
+#alt-jokes {
+    border-spacing: 30px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 30px;
+    margin: auto; 
 }
 
 #saved-jokes {
     text-align: center;
     margin: auto;
-    border: 2px;
+    border-style: solid;
     border-color: black;
+    border-spacing: 20px;
+    margin-top: 30px;
+    padding-top: 15px;
+}
+
+
+
+#imgOne {
+    place-items: left;
 }

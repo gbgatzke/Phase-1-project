@@ -9,30 +9,47 @@
     <script defer src="./index.js"></script>
 </head>
 <body>
+    <div id="imgOne">
+        <img src='https://media.giphy.com/media/l3fQf1OEAq0iri9RC/giphy.gif' height="200" width="200" text-align="left" >
+    </div>
+
     <header><em>Everybody Likes To Laugh!</em></header>
+
     <div class="joke-request">
         <div id="display-joke"></div>
-        <!--<button id="get-joke">Click for a joke!</button>-->
-        <br>
-        <div id="type_select">
-            <button id="button">Click for a joke!</button>
-            <label for='programming'>Programming:</label>
-            <input type="checkbox" id="programming"></input>
-            <label for='misc'>Misc:</label>
-            <input type="checkbox" id="misc"></input>
-            <label for='dark'>Dark:</label>
-            <input type="checkbox" id="dark"></input>
-            <label for='pun'>Pun:</label>
-            <input type="checkbox" id="pun"></input>
-            <label for='spooky'>Spooky:</label>
-            <input type="checkbox" id="spooky"></input>
-            <label for='christmas'>Christmas:</label>
-            <input type="checkbox" id="christmas"></input>
-        </div>
     </div>
-    <div id="alt-jokes"></div>
-    <div id="saved-jokes">
 
+    <div id="type_select">
+        <button id="button">Click for jokes!</button>
+        <label for="programming">Programming
+            <input type="checkbox" id="programming"></input>
+        </label>
+        <label for="misc">Misc
+            <input type="checkbox" id="misc"></input>
+        </label>
+        <label for="dark">Dark
+            <input type="checkbox" id="dark"></input>
+        </label>
+        <label for="pun">Pun
+            <input type="checkbox" id="pun"></input>
+        </label>
+        <label for="spooky">Spooky
+            <input type="checkbox" id="spooky"></input>
+        </label>
+    </div>
+
+    <form id="form">
+        <input type="text" id="search-input"></input>
+        <input type="submit"></input>
+    </form>
+    
+
+    <div id="alt-jokes">
+        <h4>Other good jokes:</h4>
+    </div>
+
+    <div id="saved-jokes">
+       <h4>Favorites:</h4> 
     </div>
 </body>
 </html>

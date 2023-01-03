@@ -1,19 +1,24 @@
-let getJoke = document.getElementById('button')
+const getJoke = document.getElementById('button')
 const jokeText = document.getElementById('joke-text')
 const jokeTitle = document.getElementById('joke-main')
-let jokeDiv = document.getElementById('display-joke')
-let altJokes = document.getElementById('alt-jokes')
+const jokeDiv = document.getElementById('display-joke')
+const altJokes = document.getElementById('alt-jokes')
+const form = document.querySelector('#form')
 
-getJoke.addEventListener('click', (e) => {
-    fetch("https://v2.jokeapi.dev/joke/Any?amount=5")
+getJoke.addEventListener('click', () => {
+    fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist,sexist&amount=5")
     .then((res) => res.json())
     .then(data => {
-        console.log(data.jokes)
         displayJoke(data.jokes[0])
         extraJoke(data.jokes)
     })
 })
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let input = document.getElementById('search-input')
+    searchJoke(input.value)
+})
 
 function displayJoke(joke) {
     if (joke.setup) {
@@ -42,17 +47,28 @@ function singleLineJoke(joke) {
     h1.textContent = joke.joke;
 
     let h3 = document.createElement('h3')
-    h3.textContent = joke.category
+    if (joke.safe === true) {
+        h3.textContent = "This is a vanilla joke!"
+    } else {
+        h3.textContent = "This joke might be offensive!"
+    }
+
+    let h4 = document.createElement('h4')
+    h4.textContent = `Category: ${joke.category}`
     
     let btn = document.createElement("button")
     btn.id = "favorite"
     btn.textContent = "Favorite"
+    btn.disabled = false
 
-    btn.addEventListener('click', () => {
+    
+
+    btn.addEventListener('click', (e) => {
         addToFavorites(joke)
+        btn.disabled = true
     })
     
-    jokeDiv.append(h1, h3, btn)
+    jokeDiv.append(h1, h3, h4, btn)
         
 }
 
@@ -65,17 +81,27 @@ function twoPartJoke(joke) {
     h2.textContent = joke.delivery
 
     let h3 = document.createElement('h3')
-    h3.textContent = joke.category
+    let flags = joke.flags
+    if (joke.safe === true) {
+        h3.textContent = "This is a vanilla joke!"
+    } else {
+        h3.textContent = "This joke might be offensive!"
+    }
+
+    let h4 = document.createElement('h4')
+    h4.textContent = `Category: ${joke.category}`
 
     let btn = document.createElement("button")
     btn.id = "favorite"
     btn.textContent = "Favorite"
+    btn.disabled = false
 
     btn.addEventListener('click', () => {
         addToFavorites(joke)
+        btn.disabled = true
     })
 
-    jokeDiv.append(h1, h2, h3, btn)
+    jokeDiv.append(h1, h2, h3, h4, btn)
 }
 
 function addToFavorites(joke) {
@@ -89,6 +115,25 @@ function addToFavorites(joke) {
         savedJokes.appendChild(p)
     }
 }
+
+function searchJoke(search) {
+    fetch(`https://v2.jokeapi.dev/joke/Any?contains=${search}`)
+    .then((res) => res.json())
+    .then(joke => displayJoke(joke))
+}
+
+//let programBox = document.querySelector('#programming')
+//let miscBox = document.querySelector('#misc')
+//let darkBox = document.querySelector('#dark')
+//let punBox = document.querySelector('#pun')
+//let spookyBox = document.querySelector('#spooky')
+//
+//if (programBox.checked === true) {}
+
+
+
+
+
 
 
     
