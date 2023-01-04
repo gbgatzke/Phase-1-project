@@ -16,40 +16,39 @@
     <header><em>Everybody Likes To Laugh!</em></header>
 
     <div class="joke-request">
-        <div id="display-joke"></div>
+        <div id="display-joke">
+            <h1>Your home for mediochre jokes!</h1>
+        </div>
     </div>
 
+    
     <div id="type_select">
         <button id="button">Click for jokes!</button>
-        <label for="programming">Programming
-            <input type="checkbox" id="programming"></input>
-        </label>
-        <label for="misc">Misc
-            <input type="checkbox" id="misc"></input>
-        </label>
-        <label for="dark">Dark
-            <input type="checkbox" id="dark"></input>
-        </label>
-        <label for="pun">Pun
-            <input type="checkbox" id="pun"></input>
-        </label>
-        <label for="spooky">Spooky
-            <input type="checkbox" id="spooky"></input>
-        </label>
+        <label for="categories">Choose a category:</label>
+        <select name="categories" id="cat-select">
+            <option value="none" selected disabled hidden></option>
+            <option value="Programming">Programming</option>
+            <option value="Misc">Misc</option>
+            <option value="Dark">Dark</option>
+            <option value="Pun">Pun</option>
+            <option value="Spooky">Spooky</option>
+        </select>
+
     </div>
+    
 
     <form id="form">
         <input type="text" id="search-input"></input>
         <input type="submit"></input>
     </form>
     
-
-    <div id="alt-jokes">
+    <div id="joke-list">
         <h4>Other good jokes:</h4>
+        <div id="alt-jokes"></div>
     </div>
-
     <div id="saved-jokes">
        <h4>Favorites:</h4> 
+       <h5>(click a joke to delete)</h5>
     </div>
 </body>
 </html>

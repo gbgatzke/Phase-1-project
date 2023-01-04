@@ -1,23 +1,42 @@
 const getJoke = document.getElementById('button')
-const jokeText = document.getElementById('joke-text')
-const jokeTitle = document.getElementById('joke-main')
 const jokeDiv = document.getElementById('display-joke')
 const altJokes = document.getElementById('alt-jokes')
 const form = document.querySelector('#form')
 
 getJoke.addEventListener('click', () => {
+    let select = document.querySelector('#cat-select')
+    if (select.value === 'none') {
+        fetchDefaultJoke()
+    } else {
+        fetchJokeCategory(select.value)
+    }
+})
+
+function fetchDefaultJoke() {
     fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=racist,sexist&amount=5")
     .then((res) => res.json())
     .then(data => {
         displayJoke(data.jokes[0])
         extraJoke(data.jokes)
     })
-})
+
+}
+
+function fetchJokeCategory(category) {
+    fetch(`https://v2.jokeapi.dev/joke/${category}?blacklistFlags=racist,sexist&amount=5`)
+    .then((res) => res.json())
+    .then(data => {
+        displayJoke(data.jokes[0])
+        extraJoke(data.jokes)
+    })
+    console.log(category)
+}
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     let input = document.getElementById('search-input')
     searchJoke(input.value)
+    e.target.reset()
 })
 
 function displayJoke(joke) {
@@ -55,21 +74,20 @@ function singleLineJoke(joke) {
 
     let h4 = document.createElement('h4')
     h4.textContent = `Category: ${joke.category}`
+
+    let p = document.createElement('p')
+    p.innerHTML = `Explicit: ${joke.flags.explicit}<br>NSFW: ${joke.flags.nsfw}<br>Political: ${joke.flags.political}<br>Religious: ${joke.flags.religious}<br>`
     
     let btn = document.createElement("button")
     btn.id = "favorite"
     btn.textContent = "Favorite"
     btn.disabled = false
-
     
-
     btn.addEventListener('click', (e) => {
         addToFavorites(joke)
         btn.disabled = true
     })
-    
-    jokeDiv.append(h1, h3, h4, btn)
-        
+    jokeDiv.append(h1, h3, h4, p, btn)
 }
 
 function twoPartJoke(joke) {
@@ -91,6 +109,9 @@ function twoPartJoke(joke) {
     let h4 = document.createElement('h4')
     h4.textContent = `Category: ${joke.category}`
 
+    let p = document.createElement('p')
+    p.innerHTML = `Explicit: ${joke.flags.explicit}<br>NSFW: ${joke.flags.nsfw}<br>Political: ${joke.flags.political}<br>Religious: ${joke.flags.religious}<br>`
+
     let btn = document.createElement("button")
     btn.id = "favorite"
     btn.textContent = "Favorite"
@@ -101,7 +122,7 @@ function twoPartJoke(joke) {
         btn.disabled = true
     })
 
-    jokeDiv.append(h1, h2, h3, h4, btn)
+    jokeDiv.append(h1, h2, h3, h4, p, btn)
 }
 
 function addToFavorites(joke) {
@@ -114,13 +135,25 @@ function addToFavorites(joke) {
         p.textContent = `${joke.setup} -- ${joke.delivery}`
         savedJokes.appendChild(p)
     }
+
+    p.addEventListener('click', () => {
+        p.remove()
+    })
 }
 
 function searchJoke(search) {
     fetch(`https://v2.jokeapi.dev/joke/Any?contains=${search}`)
     .then((res) => res.json())
-    .then(joke => displayJoke(joke))
+    .then(data => {
+        if (data.error === true){   
+            let h1 = document.createElement('h1')
+            h1.textContent = `${data.message}`
+            jokeDiv.innerHTML = ''
+            jokeDiv.appendChild(h1)
+        } else {displayJoke(data)}
+    })
 }
+
 
 //let programBox = document.querySelector('#programming')
 //let miscBox = document.querySelector('#misc')

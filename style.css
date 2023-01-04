@@ -7,8 +7,10 @@ header {
 div {
     margin: auto;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     max-width: 60%;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 #button {
@@ -38,11 +40,12 @@ div {
 
 }
 
-#alt-jokes {
+#joke-list {
     border-spacing: 30px;
     border-style: solid;
     border-color: black;
     margin-top: 30px;
+    padding-top: 15px;
     margin: auto; 
 }
 
