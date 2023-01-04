@@ -1,3 +1,12 @@
+body {
+    /*background-image: url("https://media.giphy.com/media/l3vR7xOQTuZ8J7HPy/giphy.gif");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Corben', cursive;
+    /*color: blanchedalmond;*/
+   
+}
+
 header {
     text-align: center;
     margin-top: 50px;
@@ -11,6 +20,7 @@ div {
     max-width: 60%;
     padding-left: 30px;
     padding-right: 30px;
+    
 }
 
 #button {
@@ -24,7 +34,7 @@ div {
     text-align: center;
     margin: auto;
     border-style: solid;
-    border-color: black;
+    /*border-color: blanchedalmond;*/
     padding-bottom: 15px;
 }
 
@@ -43,7 +53,7 @@ div {
 #joke-list {
     border-spacing: 30px;
     border-style: solid;
-    border-color: black;
+    /*border-color: blanchedalmond;*/
     margin-top: 30px;
     padding-top: 15px;
     margin: auto; 
@@ -53,7 +63,7 @@ div {
     text-align: center;
     margin: auto;
     border-style: solid;
-    border-color: black;
+    /*border-color: blanchedalmond;*/
     border-spacing: 20px;
     margin-top: 30px;
     padding-top: 15px;
