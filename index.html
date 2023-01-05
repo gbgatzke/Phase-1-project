@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Corben&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--<div id="imgOne">
-        <img src='https://media.giphy.com/media/l3fQf1OEAq0iri9RC/giphy.gif' height="200" width="200" text-align="left" >
-    </div>-->
-
-    <header><em>Your home for mediochre jokes!</em></header>
+    <header><em>Your home for mediocre jokes!</em></header>
+    <span>
+        <img id='imgOne' src="https://media.giphy.com/media/l3fQf1OEAq0iri9RC/giphy.gif" height="200" width="200" alt="snoopy">
+        <img id='imgTwo' src="https://i.giphy.com/media/xT9DPzhNGA8MKjxwFG/giphy.webp" height="200" width="200" alt="laugh">
+    </span>
 
     <div class="joke-request">
         <div id="display-joke">
@@ -41,17 +41,19 @@
     
 
     <form id="form">
+        <label>Enter a word or string to search jokes:</label>
         <input type="text" id="search-input"></input>
         <input type="submit"></input>
     </form>
     
-    <div id="joke-list">
+    <div id="joke-list" style="display: none;">
         <h4>Other good jokes:</h4>
         <div id="alt-jokes"></div>
     </div>
-    <div id="saved-jokes">
-       <h4>Favorites:</h4> 
-       <h5>(click a joke to delete)</h5>
+    <div id="saved-jokes" style="display: none;">
+        <h4>Favorites:</h4> 
+        <h5>(click a joke to delete)</h5>
     </div>
+    <button id="toggle">Toggle Colors</button>
 </body>
 </html>

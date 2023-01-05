@@ -4,30 +4,47 @@ body {
     background-size: cover;
     font-family: 'Corben', cursive;
     /*color: blanchedalmond;*/
-   
+    background: linear-gradient(#318CE7, #90ee90);
+    background-attachment: fixed;
+}
+
+.dark-mode {
+    background: linear-gradient(#ce7318, #6f116f);
+    color: blanchedalmond;
+    border-color: blanchedalmond;
+    background-attachment: fixed;
 }
 
 header {
     text-align: center;
     margin-top: 50px;
-    font-size: larger;
+    font-size: 50px;
+}
+
+#imgOne {
+    float: right;
+    padding-right: 10%;
+}
+
+#imgTwo {
+    float: left;
+    padding-left: 10%;
 }
 
 div {
     margin: auto;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 25px;
     max-width: 60%;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
     
 }
 
 #button {
     margin: auto;
-    width: 100;
     display: grid;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 #display-joke {
@@ -35,27 +52,27 @@ div {
     margin: auto;
     border-style: solid;
     /*border-color: blanchedalmond;*/
-    padding-bottom: 15px;
+    padding-bottom: 25px;
 }
 
 #type-select {
     text-align: center;
-    margin: 40px;
+    margin: 25px;
 }
 
 #form {
     margin-top: 25px;
     margin-bottom: 25px;
     text-align: center;
-
 }
 
 #joke-list {
-    border-spacing: 30px;
+    border-spacing: 25px;
     border-style: solid;
     /*border-color: blanchedalmond;*/
-    margin-top: 30px;
-    padding-top: 15px;
+    margin-top: auto;
+    margin-bottom: 25px;
+    padding-top: 25px;
     margin: auto; 
 }
 
@@ -64,13 +81,18 @@ div {
     margin: auto;
     border-style: solid;
     /*border-color: blanchedalmond;*/
-    border-spacing: 20px;
-    margin-top: 30px;
-    padding-top: 15px;
+    border-spacing: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-
-
-#imgOne {
-    place-items: left;
+#toggle {
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }

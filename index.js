@@ -2,6 +2,9 @@ const getJoke = document.getElementById('button')
 const jokeDiv = document.getElementById('display-joke')
 const altJokes = document.getElementById('alt-jokes')
 const form = document.querySelector('#form')
+const extraDiv = document.querySelector('#joke-list')
+const favoritesDiv = document.querySelector('#saved-jokes')
+const toggleBtn = document.querySelector('#toggle')
 
 getJoke.addEventListener('click', () => {
     let select = document.querySelector('#cat-select')
@@ -9,6 +12,15 @@ getJoke.addEventListener('click', () => {
         fetchDefaultJoke()
     } else {
         fetchJokeCategory(select.value)
+    }
+})
+
+toggleBtn.addEventListener('click', () => {
+    const body = document.querySelector('body')
+    if (!body.className) {
+        body.className = ('dark-mode')
+    } else { body.className = ''
+        
     }
 })
 
@@ -46,6 +58,7 @@ function displayJoke(joke) {
 }
 
 function extraJoke(jokes) { 
+    extraDiv.style = ''
     altJokes.innerHTML = ''
     jokes.forEach(joke => {
         if (joke.type === 'single') {
@@ -126,6 +139,7 @@ function twoPartJoke(joke) {
 }
 
 function addToFavorites(joke) {
+    favoritesDiv.style = ''
     let savedJokes = document.getElementById('saved-jokes')
     let p = document.createElement('p')
     if (joke.joke) {
